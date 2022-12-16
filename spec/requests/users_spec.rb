@@ -17,6 +17,7 @@ RSpec.describe 'Users', type: %w[request] do
       get '/users/'
       expect(response.status).to eq(200)
       expect(response).to render_template('index')
+      expect(response.body).to include('Users#index')
     end
   end
 
@@ -26,22 +27,6 @@ RSpec.describe 'Users', type: %w[request] do
       expect(response.status).to eq(200)
       expect(response).to render_template('show')
       expect(response.body).to include('Users#show')
-    end
-  end
-end
-
-RSpec.describe 'Users', type: :request do
-  describe 'GET /index' do
-    it 'returns http success' do
-      get '/users/index'
-      expect(response).to have_http_status(:success)
-    end
-  end
-
-  describe 'GET /show' do
-    it 'returns http success' do
-      get '/users/show'
-      expect(response).to have_http_status(:success)
     end
   end
 end

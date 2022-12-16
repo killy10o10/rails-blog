@@ -15,7 +15,8 @@ RSpec.describe 'Posts', type: :request do
       it 'renders the index template' do
         get '/users/:id/posts/'
         expect(response.status).to eq(200)
-        expect(response.body).to include('List all users posts')
+        expect(response).to render_template('index')
+        expect(response.body).to include('Posts#index')
       end
     end
 
@@ -24,6 +25,7 @@ RSpec.describe 'Posts', type: :request do
         get "/users/posts/#{@post.id}"
         expect(response.status).to eq(200)
         expect(response).to render_template('show')
+        expect(response.body).to include('Posts#show')
       end
     end
   end
