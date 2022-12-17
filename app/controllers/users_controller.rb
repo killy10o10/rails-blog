@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
   def index
-    @index_message = 'This is a list of all users'
+    @users = User.all
   end
 
   def show
-    @show_message = 'this is info about a specific user'
+    @user = User.find(params[:id])
   end
 end
