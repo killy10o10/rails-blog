@@ -1,9 +1,10 @@
 class PostsController < ApplicationController
   def index
-    @index_message = 'This is a page to all posts'
+    @user = User.find(params[:user_id])
   end
 
   def show
-    @show_message = 'This is a page for a specific post'
+    @user = User.find(params[:user_id])
+    @post = Post.find(params[:id])
   end
 end
