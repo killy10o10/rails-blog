@@ -141,6 +141,11 @@ To run the project, execute the following command:
 - Twitter: [@Quami_Killy](https://twitter.com/Quami_Killy)
 - LinkedIn: [@Kingsley Okine](https://www.linkedin.com/in/kingsley-okine/)
 
+👤 **Farida Hamid**
+
+- LinkedIn: [LinkedIn](https://linkedin.com/in/farida-hamid)
+- GitHub: [@Farida-Hamid](https://github.com/Farida-Hamid)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->

@@ -17,7 +17,6 @@ RSpec.describe 'Users', type: %w[request] do
       get '/users/'
       expect(response.status).to eq(200)
       expect(response).to render_template('index')
-      expect(response.body).to include('Users#index')
     end
   end
 
@@ -26,7 +25,6 @@ RSpec.describe 'Users', type: %w[request] do
       get "/users/#{@user.id}"
       expect(response.status).to eq(200)
       expect(response).to render_template('show')
-      expect(response.body).to include('Users#show')
     end
   end
 end

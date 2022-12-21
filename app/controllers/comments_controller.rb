@@ -6,9 +6,9 @@ class CommentsController < ApplicationController
   def create
     author = current_user
     post = Post.find(params[:post_id])
-    @comment = Comment.new(comment_params)
-    @comment.author = author
-    @comment.post = post
+    comment = Comment.new(comment_params)
+    comment.author = author
+    comment.post = post
     if @comment.save
       flash[:success] = 'Comment Added successfully!'
     else
