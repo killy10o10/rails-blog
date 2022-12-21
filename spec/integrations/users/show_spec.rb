@@ -24,7 +24,6 @@ RSpec.describe 'user#posts', type: :feature do
       expect(page).to have_content "Number of posts: #{@tom.posts_counter}"
     end
     it 'displays the users bio' do
-      # visit user_path(@tom)
       expect(page).to have_content @tom.bio
     end
     it 'displays the first three posts' do
