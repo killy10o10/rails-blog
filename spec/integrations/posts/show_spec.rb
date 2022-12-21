@@ -5,21 +5,21 @@ describe Post, type: :feature do
     @user1 = User.create(
       name: 'Samy',
       photo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkucjJTU_QQmoqHOAt8OsYC5f9U1XFxuqkKkQSGJ9m&s',
-      bio: 'I have two sons.',
+      bio: 'I have two sons.'
     )
     @user2 = User.create(
       name: 'Sally',
       photo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkucjJTU_QQmoqHOAt8OsYC5f9U1XFxuqkKkQSGJ9m&s',
-      bio: 'I\'m a dentist',
+      bio: 'I\'m a dentist'
     )
-     
+
     @post1 = Post.create(title: 'Gerrting', text: 'Hi there, everyone.', author: @user1)
 
     @comment = Comment.create(text: 'Hi how are you?', author: @user2, post: @post1)
 
     visit("users/#{@user1.id}/posts/#{@post1.id}")
   end
-  
+
   it 'should have the post title' do
     expect(page).to have_content(@post1.title)
   end
