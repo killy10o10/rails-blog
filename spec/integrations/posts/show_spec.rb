@@ -1,62 +1,50 @@
-# require 'rails_helper'
+require 'rails_helper'
 
-# RSpec.describe 'Post show', type: :feature do
-#   before(:each) do
-#     @user1 = User.create(name: 'King Viserys',
-#                          photo: 'https://www.cheatsheet.com/wp-content/uploads/2022/08/House-of-the-Dragon-King-Viserys-Targaryen-Paddy-Considine.jpg',
-#                          bio: 'was the fifth king of the Targaryen dynasty to rule the Seven Kingdoms.')
+describe Post, type: :feature do
+  before :each do
+    @user1 = User.create(
+      name: 'Samy',
+      photo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkucjJTU_QQmoqHOAt8OsYC5f9U1XFxuqkKkQSGJ9m&s',
+      bio: 'I have two sons.',
+    )
+    @user2 = User.create(
+      name: 'Sally',
+      photo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkucjJTU_QQmoqHOAt8OsYC5f9U1XFxuqkKkQSGJ9m&s',
+      bio: 'I\'m a dentist',
+    )
+     
+    @post1 = Post.create(title: 'Gerrting', text: 'Hi there, everyone.', author: @user1)
 
-#     @user2 = User.create(name: 'Prince Daemon',
-#                          photo: 'https://cdn.mos.cms.futurecdn.net/caYqXfi4Evm8SemqFtL2JS.jpg',
-#                          bio: 'Prince of the Targaryen dynasty, and the younger brother of King Viserys I Targaryen.')
-#     @post1 = Post.create(author: @user1, title: 'My Reign',
-#                          text: 'unprecedented fifty years of peace and prosperity under his grandfather.')
-#     Comment.create(post: @post1, author: @user1, text: 'Great post')
-#     Comment.create(post: @post1, author: @user2, text: 'Interesting article')
-#     Like.create([{ post: @post1, author: @user1 }, { post: @post1, author: @user2 }])
+    @comment = Comment.create(text: 'Hi how are you?', author: @user2, post: @post1)
 
-#     @post2 = Post.create(author: @user2, title: 'The Great Worrior I Am',
-#                          text: 'Later, while a disconsolate Viserys works on a large model of Old Valyria')
-#     Comment.create(post: @post2, author: @user1, text: 'I loved Sir Christien')
-#     Like.create({ post: @post2, author: @user1 })
-#   end
+    visit("users/#{@user1.id}/posts/#{@post1.id}")
+  end
+  
+  it 'should have the post title' do
+    expect(page).to have_content(@post1.title)
+  end
 
-#   it 'display post\'s title' do
-#     visit user_post_path(@post1, @user1)
-#     expect(page).to have_content @post1.title
-#   end
+  it 'should have the post\'s author' do
+    expect(page).to have_content(@post1.author.name)
+  end
 
-#   it 'display post\'s author' do
-#     visit user_post_path(@post1, @user1)
-#     expect(page).to have_content @post1.author.name
-#   end
+  it 'should have the post\'s comments count' do
+    expect(page).to have_content("Comments: #{@post1.comments_counter}")
+  end
 
-#   it 'display post\'s comments count' do
-#     visit user_post_path(@post2, @user2)
-#     expect(page).to have_content("Comments: #{@post2.comments_counter}")
-#   end
+  it 'should have the post\'s likes count' do
+    expect(page).to have_content("Likes: #{@post1.likes_counter}")
+  end
 
-#   it 'display post\'s likes count' do
-#     visit user_post_path(@post2, @user2)
-#     expect(page).to have_content("Likes: #{@post2.likes_counter}")
-#   end
+  it 'should have the post\'s likes count' do
+    expect(page).to have_content(@post1.text)
+  end
 
-#   it 'display post\'s body' do
-#     visit user_post_path(@post1, @user1)
-#     expect(page).to have_content @post1.text
-#   end
+  it 'should have the commentor name' do
+    expect(page).to have_content @comment.author.name
+  end
 
-#   it 'display post\'s commenter\'s name' do
-#     visit user_post_path(@post1, @user1)
-#     @post1.comments.each do |comment|
-#       expect(page).to have_content comment.author.name
-#     end
-#   end
-
-#   it 'display post\'s commenter\'s text' do
-#     visit user_post_path(@post2, @user2)
-#     @post2.comments.each do |comment|
-#       expect(page).to have_content comment.text
-#     end
-#   end
-# end
+  it 'should have the commentor comment he left' do
+    expect(page).to have_content @comment.text
+  end
+end
