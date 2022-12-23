@@ -31,6 +31,10 @@ gem 'jbuilder'
 
 gem 'ffi', github: 'ffi/ffi', submodules: true
 
+gem 'devise', '~> 4.8', '>= 4.8.1'
+
+gem 'cancancan', '~> 3.4'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
