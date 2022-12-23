@@ -1,6 +1,6 @@
 <header>
   <%= link_to "< Back", :back, class: "link back" %>
-  <%= link_to "Inkling Blog", root_path, class: "logo" %>
+  <%= link_to "Rails Blog", root_path, class: "logo" %>
   <% if current_user %>
     <%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: "link" %>
     <%= link_to "Edit Profile", edit_user_registration_path, class: "link" %>

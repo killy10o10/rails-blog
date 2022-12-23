@@ -10,6 +10,37 @@ h2,
   text-align: center;
 }
 
+.links {
+  display: flex;
+  width: 400px;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 15px;
+}
+
+.links * {
+  background-color: #ccc;
+  border-radius: 4px;
+  padding: 10px 15px;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  justify-content: center;
+}
+
+.form-container :last-child {
+  align-self: center;
+}
+
+#user_password,
+#user_email {
+  width: 400px;
+}
+
 .user-list {
   padding: 0 20px;
   display: flex;
@@ -238,15 +269,6 @@ h2,
   align-items: center;
 }
 
-.up-field {
-  width: 60%;
-  max-width: 400px;
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  justify-content: space-between;
-}
-
 .pass-box {
   flex-direction: column;
 }
@@ -308,13 +330,13 @@ header {
 
 .sign-btn {
   text-decoration: none;
-  font-family: 'Helvetica Neue', Helvetica, Arial, serif;
   font-weight: 600;
   font-size: 0.9rem;
   padding: 0.5em;
   background: #fff;
   border-radius: 0.5em;
   cursor: pointer;
+  width: 200px;
 }
 
 .login-btn {
