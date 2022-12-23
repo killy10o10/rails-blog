@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-  user_1 = User.create( name: 'Mario ',
+  user_1 = User.create( name: 'Mario',
   photo: 'https://mario.wiki.gallery/images/3/3e/MPSS_Mario.png',
   bio: 'Mario is a character created by Japanese video game designer Shigeru Miyamoto. He is the title character of the Mario franchise and the mascot of Japanese video game company Nintendo.',
   email: 'super_mario@email.com',

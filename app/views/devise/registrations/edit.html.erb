@@ -13,6 +13,12 @@
     <%= f.text_area :bio, autofocus: true, rows: "5", class: "input" %>
   </div>
 
+  <div class="field text-center my-3">
+      <%= f.label :photo_url, class: "flabel" %>:
+      <%= f.text_field :photo, autofocus: true, autocomplete: "name", class: "finput" %>
+  </div>
+
+
   <div class="up-field">
     <%= f.label :email, "Email:", class: "label" %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input" %>
