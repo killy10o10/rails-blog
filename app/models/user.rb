@@ -12,12 +12,10 @@ class User < ApplicationRecord
     posts.order(created_at: :asc).limit(3)
   end
 
-  ROLES = %w{admin default}
+  ROLES = %i[admin default].freeze
 
-  ROLES.each do|role_name|
-    define_method "#{role_name}?" do
-      role == role_name
-    end
+  def is?(requested_role)
+    role == requested_role.to_s
   end
 
   validates :name, presence: true

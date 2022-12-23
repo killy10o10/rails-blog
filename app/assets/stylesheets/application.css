@@ -1,7 +1,6 @@
 body {
   margin: 0;
   padding: 20px;
-  font-family: 'Helvetica Neue', Helvetica, Arial, serif;
 }
 
 h1,
@@ -139,12 +138,11 @@ h2,
 }
 
 .like-btn {
-  margin: 0 20px 0 auto;
   color: #3b44f6;
   font-weight: 700;
   text-decoration: none;
-  padding: 10px;
-  border: 1px solid #3b44f6;
+  padding: 0.5em;
+  border: 2px solid #3b44f6;
   border-radius: 8px;
   cursor: pointer;
 }
@@ -313,8 +311,6 @@ header {
 
 .link {
   text-decoration: none;
-  font-family: 'Helvetica Neue', Helvetica, Arial, serif;
-  font-weight: 500;
   font-size: 0.9rem;
   color: #000;
   padding: 0.5em;
@@ -373,4 +369,10 @@ header {
   color: #fff;
   background: #b00100;
   border: 2px solid #b00100;
+}
+
+.clicks {
+  display: flex;
+  gap: 1rem;
+  justify-content: end;
 }

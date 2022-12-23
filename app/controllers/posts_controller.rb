@@ -30,6 +30,13 @@ class PostsController < ApplicationController
     end
   end
 
+  def destroy
+    post = Post.find(params[:id])
+
+    flash[:error] = 'Something went wrong! Post not deleted' if post.destroy
+    redirect_to user_posts_path(current_user)
+  end
+
   private
 
   def post_params
